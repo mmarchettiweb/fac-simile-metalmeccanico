@@ -1,0 +1,435 @@
+<!DOCTYPE html><html class="light" lang="it"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#b1c7f1",
+                        "on-surface-variant": "#44474e",
+                        "secondary-container": "#dde0e3",
+                        "inverse-surface": "#2b3137",
+                        "surface-bright": "#f6f9ff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d4dbe2",
+                        "secondary-fixed-dim": "#c3c7ca",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#dde3eb",
+                        "secondary": "#5b5f62",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#eef4fc",
+                        "surface-tint": "#4a5f83",
+                        "on-secondary-container": "#5f6366",
+                        "inverse-primary": "#b1c7f1",
+                        "on-surface": "#161c22",
+                        "on-error-container": "#93000a",
+                        "on-background": "#161c22",
+                        "primary-container": "#23395b",
+                        "tertiary-fixed-dim": "#ffb598",
+                        "on-secondary-fixed-variant": "#43474a",
+                        "on-error": "#ffffff",
+                        "surface-container": "#e8eef6",
+                        "on-secondary-fixed": "#181c1f",
+                        "outline": "#74777f",
+                        "surface-container-highest": "#dde3eb",
+                        "error": "#ba1a1a",
+                        "primary": "#0a2344",
+                        "on-tertiary-fixed": "#370e00",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#672200",
+                        "on-tertiary-container": "#ff7c43",
+                        "secondary-fixed": "#e0e3e6",
+                        "background": "#f6f9ff",
+                        "on-tertiary-fixed-variant": "#7e2c00",
+                        "on-primary-fixed-variant": "#32476a",
+                        "outline-variant": "#c4c6cf",
+                        "surface-container-high": "#e3e9f1",
+                        "on-primary-fixed": "#011b3c",
+                        "inverse-on-surface": "#ebf1f9",
+                        "primary-fixed": "#d6e3ff",
+                        "surface": "#f6f9ff",
+                        "tertiary-fixed": "#ffdbce",
+                        "on-primary-container": "#8da3cb",
+                        "tertiary": "#431300"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "margin-desktop": "64px",
+                        "max-width": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["IBM Plex Sans"],
+                        "headline-xl": ["IBM Plex Sans"],
+                        "headline-md": ["IBM Plex Sans"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["IBM Plex Sans"],
+                        "label-sm": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .technical-grid {
+            background-image: linear-gradient(to right, rgba(116, 119, 127, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(116, 119, 127, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .blueprint-dot {
+            background-image: radial-gradient(circle, rgba(10, 35, 68, 0.1) 1px, transparent 1px);
+            background-size: 16px 16px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant transition-all duration-200 ease-in-out h-20">
+<div class="flex justify-between items-center h-full px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<a href="index.html" class="font-headline-md text-headline-md font-bold text-primary tracking-tight">
+        Paduan Metalworking
+</a>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="servizi.html">Servizi e Tecnologie</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="settori.html">Settori</a>
+<a class="font-body-md transition-colors text-primary border-b-2 border-primary pb-1" href="qualita.html">Qualità</a>
+<a href="contatti.html" class="ml-4 px-6 py-2 bg-primary text-on-primary font-label-sm rounded hover:bg-primary-container hover:text-on-primary-container transition-all text-center inline-block">Richiedi Preventivo</a>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+
+<!-- Mobile Menu Dropdown -->
+<div id="mobile-menu-dropdown" class="hidden absolute top-20 left-0 w-full bg-surface border-b border-outline-variant shadow-lg flex-col px-margin-mobile py-4 space-y-4 md:hidden">
+    <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="index.html">Home</a>
+    <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="servizi.html">Servizi e Tecnologie</a>
+    <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="settori.html">Settori</a>
+    <a class="font-body-md transition-colors text-primary font-bold" href="qualita.html">Qualità</a>
+    <a class="px-6 py-2 bg-primary text-on-primary font-label-sm rounded text-center" href="contatti.html">Richiedi Preventivo</a>
+</div>
+        
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center pt-20 overflow-hidden bg-primary overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40 mix-blend-luminosity" data-alt="A high-tech industrial laser cutting machine in operation within a pristine modern factory environment. The scene captures vibrant sparks and glowing blue plasma arcs as a precise robotic head carves complex geometric patterns into a thick sheet of brushed stainless steel. The lighting is dramatic and technical, with deep shadows and sharp highlights reflecting the engineering excellence of the Paduan metalworking brand. The mood is industrial, powerful, and ultra-precise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZZhnkvoEOvd5YZvuWofEBvGFrA93r-vxanhUSdk1NuyURyiU7Y3oY_SiAX0ywVm8G7dlTGPOpAYcDtulfaqEAKNk4Ff-1jC77vePf9RznRGi2q1qVKS41IyMJgPMtx_F_nO5czFXOAtx_dmRdlCeMd4d4xQV7vSPeDUrEmwUpw4XuLVvL_m2fT89lReBdOPOXAzzIM6xUau7FgL62UR9dux13nzNXTDXgnsgHlirKzkkv-elRH4XKxVrIn3GnGgka5LlxVhJGgknX">
+<div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto w-full">
+<div class="max-w-3xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded border border-on-primary/20 bg-on-primary/10 text-on-primary font-label-sm mb-6">
+<span class="w-2 h-2 rounded-full bg-primary-fixed-dim animate-pulse"></span>
+                    INDUSTRIA 4.0 READY
+                </div>
+<h1 class="font-headline-xl text-headline-xl text-on-primary mb-6 leading-tight">Qualità Senza Compromessi</h1>
+<p class="font-body-lg text-body-lg text-on-primary/80 mb-10 max-w-xl">
+                    Precisione padovana per l'industria globale dal 1980. Trasformiamo visioni ingegneristiche in componenti di altissima precisione.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="px-8 py-4 bg-primary-fixed text-on-primary-fixed font-headline-md rounded-lg hover:scale-105 transition-transform flex items-center justify-center gap-2">
+                        Scopri i Servizi
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="px-8 py-4 border border-on-primary/30 text-on-primary font-headline-md rounded-lg hover:bg-white/10 transition-colors">
+                        Sfoglia Portfolio
+                    </button>
+</div>
+</div>
+</div>
+<!-- Technical Detail Overlay -->
+<div class="absolute bottom-10 right-10 hidden lg:block">
+<div class="p-4 border border-on-primary/20 bg-white/5 backdrop-blur-sm rounded-lg font-label-sm text-on-primary/60 space-y-1">
+<p>COORD_X: 45.4064</p>
+<p>COORD_Y: 11.8768</p>
+<p>PADOVA_IT</p>
+</div>
+</div>
+</section>
+<!-- ISO Certifications Section -->
+<section class="py-24 bg-white">
+<div class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">Certificazioni di Sistema</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                            La nostra gestione della qualità è certificata secondo gli standard internazionali più rigorosi. Questo garantisce processi ripetibili, rintracciabilità totale e un miglioramento continuo volto alla massima soddisfazione del cliente.
+                        </p>
+<div class="space-y-4">
+<div class="p-6 bg-surface-container-low border border-outline-variant flex gap-6 items-start">
+<div class="bg-primary p-3">
+<span class="material-symbols-outlined text-on-primary">workspace_premium</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">ISO 9001:2015</h3>
+<p class="font-body-md text-body-md text-on-secondary-container">Sistemi di gestione per la qualità. Requisiti fondamentali per l'efficienza dei processi industriali.</p>
+</div>
+</div>
+<div class="p-6 bg-surface-container-low border border-outline-variant flex gap-6 items-start">
+<div class="bg-primary p-3">
+<span class="material-symbols-outlined text-on-primary">security</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">ISO 45001</h3>
+<p class="font-body-md text-body-md text-on-secondary-container">Salute e sicurezza sul lavoro. Impegno costante per un ambiente produttivo sicuro.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-7 relative h-[500px]">
+<img alt="ISO certification quality check" class="w-full h-full object-cover grayscale-[20%] border border-outline" data-alt="A high-contrast, professional close-up of an industrial quality inspector in a brightly lit, modern facility. They are examining a complex metal component with a magnifying glass while a digital screen in the background shows CAD drawings. The lighting is crisp and cool, emphasizing the metallic textures and the sterile, high-tech environment. The color palette is dominated by deep blues, silvers, and clean whites, evoking a mood of absolute precision and reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFMahhVB3c__UELzRKKPiljUq2jutp-UCaFuym6P3fEGR4tgeKXqEB-51dBUnhVQ4Gs1ESAdAYSBq8QGOhEuHkO4hMU4ovfuoP9Ddw2q2B8it243J_ZREc_1eMrMyzVCkRwBLlVxhRdegZTh8Gy6zIVK8LdORfsgxlHrctpPnKLUER_Y7Ar9hKsx9HnOVgrhxxB5oy_GD2yOCyt-bTtNlxtaR4ePaHaJkrnojoheG5G0zVBlJVZnhrLPU-oIGnWPlxTjC93pyuhspU">
+<div class="absolute -bottom-6 -left-6 bg-primary text-on-primary p-8 hidden md:block">
+<div class="font-headline-xl text-headline-xl">100%</div>
+<div class="font-label-sm text-label-sm uppercase tracking-widest">Compliance Rate</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Metrology Lab Section (Bento Grid) -->
+<section class="py-24 bg-surface-dim/30 border-y border-outline-variant">
+<div class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="text-center mb-16">
+<span class="font-label-sm text-label-sm text-primary tracking-widest">METROLOGY CENTER</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-2">Tecnologia di Misurazione Avanzata</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- CMM Card -->
+<div class="md:col-span-2 bg-white border border-outline-variant p-8 flex flex-col md:flex-row gap-8 items-center">
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">CMM - Coordinate Measuring Machine</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                                La nostra macchina di misura a coordinate automatizzata consente controlli dimensionali centesimali su pezzi complessi, garantendo la conformità geometrica al modello CAD originale.
+                            </p>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 font-body-md text-body-md text-on-surface">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                    Precisione volumetrica: ±0.002 mm
+                                </li>
+<li class="flex items-center gap-3 font-body-md text-body-md text-on-surface">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                    Reportistica automatica e statistica
+                                </li>
+</ul>
+</div>
+<div class="w-full md:w-72 h-48 md:h-full bg-surface-container">
+<img alt="CMM machine probe" class="w-full h-full object-cover" data-alt="Detailed macro photography of a CMM probe tip making contact with a polished chrome engine part. The background shows a high-tech lab with glowing blue status indicators and sleek metal surfaces. The scene is illuminated with a soft, clinical light that highlights the technical precision of the measurement process. The aesthetic is ultra-modern and industrial, focusing on high-end manufacturing technology and engineering excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3zfQbRBsjBzymL2Kq4JwZqFUyj62z0PFsD_K4lcpBpK7U9x0GoSIvTLNejgicxy03-9-q3MRv7p15s-iOG2ieY2g7gVu5TT2rv4IkKpCF3-NS9_sCmhrCx4vXI6sbKQIKwSDDyCi_DAWunHfg8rzVChRyjT2Hg3_vImGc9YGLI9Z1oX7fbNIIZlkKZC7qfWLDJ3cuXU-oWfeCTfql7nnnA2tNeiagedDV3DpfhvEYoYyYuFjpw77_su9OpnfBxfTj8AXkGscm4kn8">
+</div>
+</div>
+<!-- 3D Scanner Card -->
+<div class="bg-primary text-on-primary p-8 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-[48px] mb-6">view_in_ar</span>
+<h3 class="font-headline-md text-headline-md mb-4">Scanner Laser 3D</h3>
+<p class="font-body-md text-body-md text-on-primary-container">
+                                Per geometrie organiche o rilievi rapidi, utilizziamo scanner laser portatili per reverse engineering e ispezione superficiale ad alta densità.
+                            </p>
+</div>
+<div class="mt-8 pt-6 border-t border-on-primary-container/30">
+<span class="font-label-sm text-label-sm">RISOLUZIONE: 0.050mm</span>
+</div>
+</div>
+<!-- Roughness Card -->
+<div class="bg-white border border-outline-variant p-8">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Rugosimetri</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            Analisi micrometrica delle finiture superficiali per garantire le specifiche tribologiche e funzionali dei componenti.
+                        </p>
+<div class="h-32 blueprint-dot border border-outline-variant flex items-center justify-center">
+<span class="font-label-sm text-label-sm text-outline">TECHNICAL ANALYSIS AREA</span>
+</div>
+</div>
+<!-- Hardness Card -->
+<div class="md:col-span-2 bg-secondary-fixed text-on-secondary-fixed p-8 flex items-center gap-8 border border-outline-variant">
+<div class="hidden sm:block">
+<div class="w-24 h-24 rounded-full border-4 border-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[40px]">architecture</span>
+</div>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2">Durometri Rockwell &amp; Brinell</h3>
+<p class="font-body-md text-body-md text-on-secondary-fixed-variant">
+                                Verifica costante della durezza dei materiali post-trattamento termico per assicurare la resistenza strutturale richiesta.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Raw Material Traceability Section -->
+<section class="py-24 bg-white relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 border-t border-r border-outline-variant/30 -mr-32 -mt-32"></div>
+<div class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="flex flex-col md:flex-row gap-16 items-start">
+<div class="md:w-1/2">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Tracciabilità Totale Materie Prime</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-12">
+                            La qualità inizia dalla selezione del fornitore. Ogni lotto di materiale in ingresso è accompagnato da certificati 3.1 EN 10204 e sottoposto a controlli interni prima della messa in produzione.
+                        </p>
+<div class="space-y-8 relative">
+<!-- Process Line -->
+<div class="absolute left-6 top-2 bottom-2 w-px bg-outline-variant"></div>
+<div class="relative pl-16">
+<div class="absolute left-0 top-0 w-12 h-12 bg-white border-2 border-primary flex items-center justify-center">
+<span class="font-label-sm text-label-sm text-primary">01</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">Ingresso &amp; Identificazione</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Etichettatura con QR code univoco per tracciare il lotto di colata in ogni fase produttiva.</p>
+</div>
+<div class="relative pl-16">
+<div class="absolute left-0 top-0 w-12 h-12 bg-white border-2 border-primary flex items-center justify-center">
+<span class="font-label-sm text-label-sm text-primary">02</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">Laboratorio Materiali</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Test chimico-fisici a campione per validare le specifiche dichiarate in acciaieria.</p>
+</div>
+<div class="relative pl-16">
+<div class="absolute left-0 top-0 w-12 h-12 bg-white border-2 border-primary flex items-center justify-center">
+<span class="font-label-sm text-label-sm text-primary">03</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">Archivio Digitale</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">I certificati sono archiviati digitalmente per 10 anni, garantendo reperibilità immediata su richiesta.</p>
+</div>
+</div>
+</div>
+<div class="md:w-1/2 grid grid-cols-2 gap-4">
+<div class="h-80 bg-surface-container">
+<img alt="Steel stock inventory" class="w-full h-full object-cover" data-alt="A meticulously organized industrial warehouse featuring stacks of high-grade steel bars and plates. Each stack is neatly labeled with high-visibility technical tags and QR codes. The overhead industrial lighting is powerful yet diffused, creating a professional and orderly atmosphere. The color palette centers on metallic greys, deep industrial blues, and sharp safety-yellow accents, emphasizing a systematic and highly controlled inventory management style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaxH-nzg6tDU750wh1L-FNnJTcbmm_LPGXqbnTPhy0y_whIDLuns6JOe9sHgm4ihc2S1ef8AwJltqH7EN2KLo2Bib59bGDPoB8LifJFeEEz_XVtVLtoVQOK7CwD0ACD47pozvPUO6_iYpgOrC6nptjEYjb7ZJgOKH4ObVQV-PWpNjFMCQ6kWaCAa0YAcsDUo4wJYidwuDv7HgbDOrohomreH3Jb4m8X32rUG6u3uQcezN-o2DMbtuGz0wTXN9N7mJpCEhl5nq7FFmU">
+</div>
+<div class="h-80 bg-surface-container mt-12">
+<img alt="Material analysis" class="w-full h-full object-cover" data-alt="A clean, scientific laboratory setting where a robotic arm is positioning a metal sample under a specialized analysis device. Subtle laser lines are visible on the metal surface, indicating scanning in progress. The background is slightly blurred, focusing on the high-tech equipment and the sample. The mood is cold, professional, and sophisticated, dominated by whites, clinical greys, and electric blue lights, reinforcing the concept of advanced material science." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCp5eeIeA6GNrpYwvnNuvHVrK2w48XWXb_I7eVtK9Ag7LpTEq9aPKcogHhGmFYxeQ7cPsvJSNfpXyuj3I5gx2B8mvEf3G_UbWCFrb8cZALR8vdg59Exe4lPJ3n5CUX9XYQqefoTtyET9h4izJAvmnTkz-zJVyM2r9SBTqOmvHfoHSJ-e-KiwBmU1YsQq1fDBhS1NafYyJgee5qILrT5slG2LUe7UolW5NUECKXujMq9O4rbOO8_bBwMZ9M1So426s94A1Y7oiKzgszw">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-20 bg-primary text-on-primary text-center">
+<div class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<h2 class="font-headline-lg text-headline-lg mb-6">Pronti per il vostro prossimo progetto ad alta precisione?</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container mb-10 max-w-2xl mx-auto">
+                    Contattate i nostri esperti di qualità per ricevere i protocolli di controllo personalizzati per la vostra produzione.
+                </p>
+<button class="bg-on-primary text-primary px-10 py-4 font-headline-md text-headline-md font-bold hover:bg-primary-fixed-dim transition-all">
+                    PARLA CON UN TECNICO
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter py-12 px-margin-desktop max-w-max-width mx-auto">
+<div class="md:col-span-1">
+<div class="font-headline-md text-headline-md text-on-primary mb-6">Paduan Metalworking</div>
+<p class="font-body-md text-body-md text-on-primary-container">
+                    Eccellenza meccanica e lavorazioni metalliche di precisione dal 1985.
+                </p>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-primary mb-6 uppercase tracking-widest">Servizi</h4>
+<ul class="space-y-3">
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-on-primary transition-opacity" href="servizi.html">Laser Cut</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-on-primary transition-opacity" href="servizi.html">CNC Milling</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-on-primary transition-opacity" href="servizi.html">Piegatura</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-on-primary transition-opacity" href="servizi.html">Carpenteria</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-primary mb-6 uppercase tracking-widest">Informazioni</h4>
+<ul class="space-y-3">
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-on-primary transition-opacity" href="index.html">Azienda</a></li>
+<li><a class="font-body-md text-body-md text-on-primary underline" href="qualita.html">Qualità</a></li>
+<li><a class="font-body-md text-body-md text-on-primary-container hover:text-on-primary transition-opacity" href="servizi.html">Tecnologie</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-primary mb-6 uppercase tracking-widest">Contatti</h4>
+<p class="font-body-md text-body-md text-on-primary-container">
+                    Via dell'Industria, 12<br>
+                    35100 Padova (PD), Italia<br>
+                    info@paduanmetal.it
+                </p>
+</div>
+</div>
+<div class="border-t border-on-primary-container/20 py-8 px-margin-desktop max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="font-label-sm text-label-sm text-on-primary-container">
+                © 2024 Paduan Metalworking S.r.l. - P.IVA 01234567890 - ISO 9001:2015 Certified
+            </div>
+<div class="flex gap-6">
+<a class="font-label-sm text-label-sm text-on-primary-container hover:text-on-primary transition-opacity" href="javascript:void(0)">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-primary-container hover:text-on-primary transition-opacity" href="javascript:void(0)">Termini e Condizioni</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for scroll effects
+        document.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+
+        // Simple Fade-in effect for sections
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
+            observer.observe(section);
+        });
+    
+        // Mobile Menu Toggle
+        const mobileToggle = document.querySelector(".md\\:hidden.text-primary");
+        const mobileMenu = document.getElementById("mobile-menu-dropdown");
+        if(mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+                mobileMenu.classList.toggle("flex");
+            });
+        }
+        
+</script>
+</body></html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html class="light" lang="it">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Paduan Metalworking | Eccellenza Lavorazioni CNC</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap"
+        rel="stylesheet">
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#b1c7f1",
+                        "on-surface-variant": "#44474e",
+                        "secondary-container": "#dde0e3",
+                        "inverse-surface": "#2b3137",
+                        "surface-bright": "#f6f9ff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d4dbe2",
+                        "secondary-fixed-dim": "#c3c7ca",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#dde3eb",
+                        "secondary": "#5b5f62",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#eef4fc",
+                        "surface-tint": "#4a5f83",
+                        "on-secondary-container": "#5f6366",
+                        "inverse-primary": "#b1c7f1",
+                        "on-surface": "#161c22",
+                        "on-error-container": "#93000a",
+                        "on-background": "#161c22",
+                        "primary-container": "#23395b",
+                        "tertiary-fixed-dim": "#ffb598",
+                        "on-secondary-fixed-variant": "#43474a",
+                        "on-error": "#ffffff",
+                        "surface-container": "#e8eef6",
+                        "on-secondary-fixed": "#181c1f",
+                        "outline": "#74777f",
+                        "surface-container-highest": "#dde3eb",
+                        "error": "#ba1a1a",
+                        "primary": "#0a2344",
+                        "on-tertiary-fixed": "#370e00",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#672200",
+                        "on-tertiary-container": "#ff7c43",
+                        "secondary-fixed": "#e0e3e6",
+                        "background": "#f6f9ff",
+                        "on-tertiary-fixed-variant": "#7e2c00",
+                        "on-primary-fixed-variant": "#32476a",
+                        "outline-variant": "#c4c6cf",
+                        "surface-container-high": "#e3e9f1",
+                        "on-primary-fixed": "#011b3c",
+                        "inverse-on-surface": "#ebf1f9",
+                        "primary-fixed": "#d6e3ff",
+                        "surface": "#f6f9ff",
+                        "tertiary-fixed": "#ffdbce",
+                        "on-primary-container": "#8da3cb",
+                        "tertiary": "#431300"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "unit": "4px",
+                        "margin-desktop": "64px",
+                        "max-width": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["IBM Plex Sans"],
+                        "headline-xl": ["IBM Plex Sans"],
+                        "headline-md": ["IBM Plex Sans"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["IBM Plex Sans"],
+                        "label-sm": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .technical-grid {
+            background-size: 24px 24px;
+            background-image: linear-gradient(to right, rgba(116, 119, 127, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(116, 119, 127, 0.05) 1px, transparent 1px);
+        }
+
+        .blueprint-overlay {
+            background: radial-gradient(circle at 20% 30%, rgba(10, 35, 68, 0.03) 0%, transparent 50%);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-surface text-on-surface font-body-md technical-grid selection:bg-primary-fixed selection:text-on-primary-fixed">
+    <!-- TopNavBar -->
+    <nav
+        class="fixed top-0 w-full z-50 bg-surface border-b border-outline-variant transition-all duration-200 ease-in-out h-20">
+        <div
+            class="flex justify-between items-center h-full px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+            <a href="index.html" class="font-headline-md text-headline-md font-bold text-primary tracking-tight">
+                Paduan Metalworking
+            </a>
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-body-md transition-colors text-primary border-b-2 border-primary pb-1"
+                    href="index.html">Home</a>
+                <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors"
+                    href="servizi.html">Servizi e Tecnologie</a>
+                <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors"
+                    href="settori.html">Settori</a>
+                <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors"
+                    href="qualita.html">Qualità</a>
+                <a href="contatti.html"
+                    class="ml-4 px-6 py-2 bg-primary text-on-primary font-label-sm rounded hover:bg-primary-container hover:text-on-primary-container transition-all text-center inline-block">Richiedi
+                    Preventivo</a>
+            </div>
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden text-primary">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu-dropdown"
+            class="hidden absolute top-20 left-0 w-full bg-surface border-b border-outline-variant shadow-lg flex-col px-margin-mobile py-4 space-y-4 md:hidden">
+            <a class="font-body-md transition-colors text-primary font-bold" href="index.html">Home</a>
+            <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors"
+                href="servizi.html">Servizi e Tecnologie</a>
+            <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors"
+                href="settori.html">Settori</a>
+            <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors"
+                href="qualita.html">Qualità</a>
+            <a class="px-6 py-2 bg-primary text-on-primary font-label-sm rounded text-center"
+                href="contatti.html">Richiedi Preventivo</a>
+        </div>
+
+    </nav>
+    <!-- Hero Section -->
+    <section class="relative min-h-[921px] flex items-center pt-20 overflow-hidden bg-primary overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img class="w-full h-full object-cover opacity-40 mix-blend-luminosity"
+                data-alt="A high-tech industrial laser cutting machine in operation within a pristine modern factory environment. The scene captures vibrant sparks and glowing blue plasma arcs as a precise robotic head carves complex geometric patterns into a thick sheet of brushed stainless steel. The lighting is dramatic and technical, with deep shadows and sharp highlights reflecting the engineering excellence of the Paduan metalworking brand. The mood is industrial, powerful, and ultra-precise."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZZhnkvoEOvd5YZvuWofEBvGFrA93r-vxanhUSdk1NuyURyiU7Y3oY_SiAX0ywVm8G7dlTGPOpAYcDtulfaqEAKNk4Ff-1jC77vePf9RznRGi2q1qVKS41IyMJgPMtx_F_nO5czFXOAtx_dmRdlCeMd4d4xQV7vSPeDUrEmwUpw4XuLVvL_m2fT89lReBdOPOXAzzIM6xUau7FgL62UR9dux13nzNXTDXgnsgHlirKzkkv-elRH4XKxVrIn3GnGgka5LlxVhJGgknX">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent"></div>
+        </div>
+        <div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto w-full">
+            <div class="max-w-3xl">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded border border-on-primary/20 bg-on-primary/10 text-on-primary font-label-sm mb-6">
+                    <span class="w-2 h-2 rounded-full bg-primary-fixed-dim animate-pulse"></span>
+                    INDUSTRIA 4.0 READY
+                </div>
+                <h1 class="font-headline-xl text-headline-xl text-on-primary mb-6 leading-tight">Eccellenza nella
+                    Carpenteria Metallica e Lavorazioni CNC</h1>
+                <p class="font-body-lg text-body-lg text-on-primary/80 mb-10 max-w-xl">Precisione padovana per
+                    l'industria globale dal 1980. Trasformiamo visioni ingegneristiche in componenti di altissima
+                    precisione.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button
+                        class="px-8 py-4 bg-primary-fixed text-on-primary-fixed font-headline-md rounded-lg hover:scale-105 transition-transform flex items-center justify-center gap-2">
+                        Scopri i Servizi
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                    <button
+                        class="px-8 py-4 border border-on-primary/30 text-on-primary font-headline-md rounded-lg hover:bg-white/10 transition-colors">
+                        Sfoglia Portfolio
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Technical Detail Overlay -->
+        <div class="absolute bottom-10 right-10 hidden lg:block">
+            <div
+                class="p-4 border border-on-primary/20 bg-white/5 backdrop-blur-sm rounded-lg font-label-sm text-on-primary/60 space-y-1">
+                <p>COORD_X: 45.4064</p>
+                <p>COORD_Y: 11.8768</p>
+                <p>PADOVA_IT</p>
+            </div>
+        </div>
+    </section>
+    <!-- Services Bento Grid -->
+    <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+        <div class="mb-16">
+            <h2 class="font-label-sm text-label-sm text-primary tracking-widest uppercase mb-4">I Nostri Servizi</h2>
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <h3 class="font-headline-lg text-headline-lg text-on-surface max-w-2xl">
+                    Tecnologie d'avanguardia per ogni esigenza di lavorazione metallica.
+                </h3>
+                <a class="text-primary font-label-sm flex items-center gap-2 group" href="#">
+                    VEDI TUTTE LE LAVORAZIONI
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">east</span>
+                </a>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+            <!-- Laser Cutting -->
+            <div
+                class="md:col-span-8 group relative overflow-hidden rounded-xl border border-outline-variant bg-white p-8 transition-all hover:border-primary">
+                <div class="relative z-10 flex flex-col h-full justify-between">
+                    <div>
+                        <span class="material-symbols-outlined text-4xl text-primary mb-4"
+                            data-weight="fill">precision_manufacturing</span>
+                        <h4 class="font-headline-md text-headline-md text-on-surface mb-2">Taglio Laser Fibra</h4>
+                        <p class="font-body-md text-on-surface-variant max-w-md">
+                            Precisione millimetrica su acciaio, alluminio e leghe speciali con macchinari di ultima
+                            generazione fino a 3000x1500mm.
+                        </p>
+                    </div>
+                    <ul class="font-label-sm text-on-surface-variant space-y-2 mt-8">
+                        <li>• Acciaio Inox fino a 20mm</li>
+                        <li>• Alluminio fino a 15mm</li>
+                        <li>• Ottone e Rame</li>
+                    </ul>
+                </div>
+                <img class="absolute top-0 right-0 w-1/2 h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity grayscale"
+                    data-alt="Detailed close-up of a fiber laser cutting head moving across a metal surface, emitting concentrated light. The aesthetic is clean, technical, and high-contrast, showcasing the sharp edges of the metal being cut. The scene is set in a modern industrial workshop with neutral tones of silver and grey, highlighting the precision and advanced technology of Paduan Metalworking's machinery."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAecOLt5cCgVOINhtraVey9Il90n2TvL7aoxqhDXMRs-vNInLM9Tsm0AtGGhrWBIA1uyGSneWWfk2Nui__jai5shYjkaOltYmjiV_OiHIpDvWse9jnSNmHnf9NFyzmg-6TDArZf593Rg75uYdJ0I8S_LUxDRNBfWd6krqg9Oawk50nidyi1Ah5RTfEOWX_1oYZH67Df3llyC_obvh-3aPY-B9biBV9WqEPPk2YIh6gKdlx78dSyVcNzQiKvg-1_mL2K5K-bgiPsppHt">
+            </div>
+            <!-- CNC Milling -->
+            <div
+                class="md:col-span-4 group relative overflow-hidden rounded-xl border border-outline-variant bg-primary p-8 transition-all hover:bg-primary-container">
+                <div class="relative z-10 text-on-primary">
+                    <span class="material-symbols-outlined text-4xl mb-4">settings_suggest</span>
+                    <h4 class="font-headline-md text-headline-md mb-2">Fresatura CNC</h4>
+                    <p class="font-body-md text-on-primary/70">
+                        Lavorazioni meccaniche a 3 e 5 assi per componenti complessi ad alta ripetibilità.
+                    </p>
+                </div>
+                <div class="mt-12 flex justify-center">
+                    <div
+                        class="w-32 h-32 rounded-full border-2 border-dashed border-on-primary/20 flex items-center justify-center animate-spin-slow">
+                        <span class="material-symbols-outlined text-on-primary/40 text-6xl">deployed_code</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Bending -->
+            <div
+                class="md:col-span-6 group relative overflow-hidden rounded-xl border border-outline-variant bg-white p-8 transition-all hover:border-primary">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <span class="material-symbols-outlined text-4xl text-primary mb-4">architecture</span>
+                        <h4 class="font-headline-md text-headline-md text-on-surface mb-2">Piegatura</h4>
+                        <p class="font-body-md text-on-surface-variant">
+                            Presse piegatrici a controllo numerico per angolazioni perfette su ogni spessore.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Assembly -->
+            <div
+                class="md:col-span-6 group relative overflow-hidden rounded-xl border border-outline-variant bg-surface-container p-8 transition-all">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <span class="material-symbols-outlined text-4xl text-primary mb-4">handyman</span>
+                        <h4 class="font-headline-md text-headline-md text-on-surface mb-2">Carpenteria &amp;
+                            Assemblaggio</h4>
+                        <p class="font-body-md text-on-surface-variant">
+                            Saldatura certificata e montaggio meccanico per prodotti finiti pronti all'uso.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Key Stats Section -->
+    <section class="bg-primary py-20 text-on-primary overflow-hidden relative">
+        <!-- Subtle grid background for stat section -->
+        <div class="absolute inset-0 opacity-10 technical-grid"></div>
+        <div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+                <div class="space-y-2">
+                    <p class="font-headline-xl text-headline-xl text-primary-fixed">40+</p>
+                    <p class="font-label-sm text-on-primary/60 uppercase tracking-widest">Anni di Esperienza</p>
+                    <div class="h-1 w-8 bg-primary-fixed-dim mx-auto"></div>
+                </div>
+                <div class="space-y-2">
+                    <p class="font-headline-xl text-headline-xl text-primary-fixed">500+</p>
+                    <p class="font-label-sm text-on-primary/60 uppercase tracking-widest">Clienti Attivi</p>
+                    <div class="h-1 w-8 bg-primary-fixed-dim mx-auto"></div>
+                </div>
+                <div class="space-y-2">
+                    <p class="font-headline-xl text-headline-xl text-primary-fixed">100%</p>
+                    <p class="font-label-sm text-on-primary/60 uppercase tracking-widest">Qualità Certificata</p>
+                    <div class="h-1 w-8 bg-primary-fixed-dim mx-auto"></div>
+                </div>
+                <div class="space-y-2">
+                    <p class="font-headline-xl text-headline-xl text-primary-fixed">12k</p>
+                    <p class="font-label-sm text-on-primary/60 uppercase tracking-widest">Mq di Produzione</p>
+                    <div class="h-1 w-8 bg-primary-fixed-dim mx-auto"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Certifications & Partners -->
+    <section class="py-16 bg-white border-b border-outline-variant">
+        <div class="px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+            <p class="font-label-sm text-center text-on-surface-variant mb-10 tracking-widest uppercase">Certificazioni
+                &amp; Tecnologie Partner</p>
+            <div
+                class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-4xl">verified</span>
+                    <span class="font-headline-md font-bold">ISO 9001</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-4xl">security</span>
+                    <span class="font-headline-md font-bold">EN 1090</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-4xl">eco</span>
+                    <span class="font-headline-md font-bold">ISO 14001</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-4xl">robot</span>
+                    <span class="font-headline-md font-bold">INDUSTRY 4.0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Call to Action -->
+    <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+        <div
+            class="relative bg-surface-container-high rounded-3xl overflow-hidden p-8 md:p-16 flex flex-col md:flex-row items-center gap-12">
+            <div class="flex-1 space-y-6">
+                <h3 class="font-headline-lg text-headline-lg text-primary">Hai un progetto tecnico da sottoporci?</h3>
+                <p class="font-body-lg text-on-surface-variant">
+                    I nostri ingegneri sono a tua disposizione per analizzare fattibilità, tempi e costi del tuo
+                    prossimo componente. Richiedi una consulenza tecnica gratuita oggi stesso.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <button
+                        class="px-8 py-4 bg-primary text-on-primary font-headline-md rounded-lg hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                        Parla con i nostri esperti
+                        <span class="material-symbols-outlined">contact_support</span>
+                    </button>
+                    <a class="px-8 py-4 border border-outline text-primary font-headline-md rounded-lg hover:bg-white transition-colors flex items-center justify-center gap-2"
+                        href="tel:+390491234567">
+                        <span class="material-symbols-outlined">call</span>
+                        +39 049 123 4567
+                    </a>
+                </div>
+            </div>
+            <div class="hidden lg:block w-1/3">
+                <img class="rounded-2xl shadow-2xl border-4 border-white"
+                    data-alt="A professional male engineer in his 40s wearing a technical polo shirt with the company logo, standing in front of a high-tech CNC control panel. He is holding a digital tablet and discussing a technical blueprint with a colleague in a bright, modern, and clean industrial setting. The lighting is natural and professional, emphasizing a mood of collaborative expertise and high-precision engineering services."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRhWrcuyaKDWzesgfIsk4gMS83PuO57_iM0gjOL2JdMRxYJsJoaMebPj5HMTljelN2Z0gT9j-X1igcXdz0tkNb_j51NRuSYYYC_iDiCWqe388PpgElgriKMynpAYqgBEiGGVlF-lv_L-E-PVfp1ZFY62JEXlMAuLWSWfEc_EiXrRy_HY9tyJLzLN1sdYuZhDf6Be0WUWE6BnMnakydSHbFxKdcRrMqklLm83YzcIfZbEBW_CPNnwmVJ2MtICJLrKc0KoH4irOhra_w">
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-primary text-on-primary w-full border-t border-outline-variant">
+        <div
+            class="grid grid-cols-1 md:grid-cols-4 gap-gutter py-12 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+            <div class="space-y-6">
+                <div class="font-headline-md text-headline-md text-on-primary">Paduan Metalworking</div>
+                <p class="font-body-md text-on-primary-container">
+                    Dal 1980, il punto di riferimento per la carpenteria metallica di precisione nel cuore del Veneto.
+                </p>
+            </div>
+            <div>
+                <h5 class="font-label-sm text-on-primary/50 uppercase mb-6">Servizi</h5>
+                <ul class="space-y-4 font-body-md text-on-primary-container">
+                    <li><a class="hover:text-on-primary transition-colors" href="servizi.html">Laser Cut</a></li>
+                    <li><a class="hover:text-on-primary transition-colors" href="servizi.html">CNC Milling</a></li>
+                    <li><a class="hover:text-on-primary transition-colors" href="servizi.html">Piegatura</a></li>
+                    <li><a class="hover:text-on-primary transition-colors" href="servizi.html">Carpenteria</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-label-sm text-on-primary/50 uppercase mb-6">Contatti</h5>
+                <ul class="space-y-4 font-body-md text-on-primary-container">
+                    <li class="flex items-center gap-2"><span
+                            class="material-symbols-outlined text-sm">location_on</span> Via dell'Industria, 12 - Padova
+                    </li>
+                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">mail</span>
+                        info@paduanmetal.it</li>
+                    <li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">schedule</span>
+                        Lun - Ven: 08:00 - 18:00</li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-label-sm text-on-primary/50 uppercase mb-6">Legal</h5>
+                <ul class="space-y-4 font-body-md text-on-primary-container">
+                    <li><a class="hover:text-on-primary transition-colors" href="javascript:void(0)">Privacy Policy</a>
+                    </li>
+                    <li><a class="hover:text-on-primary transition-colors" href="javascript:void(0)">Termini e
+                            Condizioni</a></li>
+                    <li><a class="hover:text-on-primary transition-colors" href="javascript:void(0)">Cookie Policy</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="border-t border-on-primary/10 py-6 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-on-primary/40 font-label-sm">
+            <div>© 2024 Paduan Metalworking S.r.l. - P.IVA 01234567890 - ISO 9001:2015 Certified</div>
+            <div class="flex gap-4">
+                <a class="hover:text-on-primary" href="javascript:void(0)">LinkedIn</a>
+                <a class="hover:text-on-primary" href="javascript:void(0)">Instagram</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Micro-interaction for Navbar background change on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md', 'h-16');
+                nav.classList.remove('h-20');
+            } else {
+                nav.classList.remove('shadow-md', 'h-16');
+                nav.classList.add('h-20');
+            }
+        });
+
+        // Simple animation trigger for numbers on scroll (conceptual)
+        const stats = document.querySelectorAll('.font-headline-xl');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        stats.forEach(stat => observer.observe(stat));
+
+        // Mobile Menu Toggle
+        const mobileToggle = document.querySelector(".md\\:hidden.text-primary");
+        const mobileMenu = document.getElementById("mobile-menu-dropdown");
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener("click", () => {
+                mobileMenu.classList.toggle("hidden");
+                mobileMenu.classList.toggle("flex");
+            });
+        }
+
+    </script>
+</body>
+
+</html>
